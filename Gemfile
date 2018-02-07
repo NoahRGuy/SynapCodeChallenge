@@ -28,7 +28,6 @@ gem 'spring',        group: :development
 
 gem 'haml-rails'
 gem 'pg'
-
 gem 'twitter-bootstrap-rails'
 
 gem 'devise'
