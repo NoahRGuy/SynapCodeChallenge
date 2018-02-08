@@ -68,3 +68,13 @@ table {
 .weight {
   width: 73px;
 }
+.header-1{
+  padding-left: 95px;
+}
+.header-2{
+  padding-left: 41px;
+}
+tr{
+  margin-top: 25px;
+  margin-bottom: 25px;
+}

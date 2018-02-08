@@ -33,15 +33,16 @@ parts_csv.each do |row|
 	p.league_id = league.id
 	p.save
 end
-p League.first
 weighs_csv.each do |row|
 	c = Checkin.new
 	e = Event.find_by(name: row['Event'])
 	p = Person.find_by(name: row['Name'])
 	l = LeagueEventJoin.where(:event_id => e.id, :league_id => p.league_id).first_or_create
+	p l
 	if p.starting_weight == 0.0
 		p.starting_weight = row['Weight']
 	end
+	c.weight = row['Weight'].to_i
 	c.person_id = p.id
 	c.event_id = e.id
 	weight_difference = row['Weight'].to_i - p.starting_weight

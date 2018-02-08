@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'people#index'
+  root 'events#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   resources :people, only: [:create, :index, :show]
   resources :checkins, only: [:create, :new]
   resources :locations, only: [:create, :index, :show]
-  resources :events, only: [:index, :show]
+  resources :events, only: [:index, :show] do
+    resources :leagues, only: [:show]
+  end
 
   # Example resource route with options:
   #   resources :products do
