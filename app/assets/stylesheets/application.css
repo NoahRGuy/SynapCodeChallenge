@@ -64,7 +64,23 @@ table {
 }
 .person-name {
   width: 150px;
+  padding-left: 30px;
 }
 .weight {
-  width: 73px;
+  width: 200px;
+}
+.header-1{
+  padding-left: 50px;
+}
+.header-2{
+  padding-right: 20px;
+}
+.header-3{
+  padding-left: 50px;
+}
+.league-header-1{
+  padding-left: 92px;
+}
+.league-header-2{
+  padding-right: 85px;
 }

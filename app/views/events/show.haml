@@ -1,12 +1,41 @@
 %h2
   #{@event.name}
-- @event.people.each_with_index do |person, index|
+
+%h3
+  League Leaderboards
+%table
+  %tr
+    %td{class: 'header-1'} League Name
+- @leagues.each do |league|
+
   %table
     %tr
-      %td{class: 'ordinal'}= index
-      %td{class: "text-left"}=link_to(person.name, person_path(person.id))
-      %td{class: "text-left weight"}=person.up_by(@event)
-  %br
+      %td{class: "text-left person-name"}=link_to(league.name, event_league_path(@event, league.id))
+   
+%br
+%br
+%br
+%br
+%br
+%br
+%h3
+  Global Leaderboard
+%table
+  %tr{class: 'title-row'}
+    %td{class: 'header-1'} Name
+    %td{class: 'text-center header-2'} League
+    %td{class: 'text-center header-3'} Up By
+- @leaderboard.each_with_index do |person, index|
+  %table
+    %tr{class: 'row-entry'}
+      %td{class: 'ordinal'}= index + 1
+      %td{class: 'text-left person-name'}= person.name
+      %td{class: 'text-center league-name'}= person.league.name    
+      -if person.up_by
+        %td{class: 'text-left weight'} #{person.up_by(@event)} (#{person.percentage_change})
+      -else
+        %td{class: 'text-left weight'}
+%br
 %br
 %br
 %br
